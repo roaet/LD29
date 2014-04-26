@@ -15,8 +15,7 @@ public class Word{
 	}
 
 	public Word(JSONNode wordJSON, int x, int y){
-		_word = wordJSON ["words"][x][y];//prob ["words"][num] for array
-		Debug.Log (_word);
+		_word = wordJSON ["words"][x][y];
 	}
 
 	public string word {
