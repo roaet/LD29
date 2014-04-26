@@ -1,19 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
-public class TileLoader : MonoBehaviour
+public class TileLoader
 {
 
-		// Use this for initialization
-		void Start ()
-		{
-	
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-	
-		}
+	public TileLoader() {
+
+	}
+
+	public void LoadLevelFromAsset(string assetName) {
+
+	}
+
 }
 
