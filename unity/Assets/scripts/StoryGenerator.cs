@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public enum StoryState {
-	start, boy, girl, knife, heart
+	start, justaboy, justagirl,
+	boyloves_something, girlloves_something,
+	crossdresser
 }
 
 public class StoryGenerator
@@ -48,10 +50,18 @@ public class StoryGenerator
 				case "boy": currentState = StoryState.boy; break;
 				case "girl": currentState = StoryState.girl; break;
 				}
-			} else if(currentState == StoryState.boy) {
-
+			} else if(currentState == StoryState.justaboy) {
+				switch(token) {
+				case "boy": currentState = StoryState.boy; break;
+				case "girl": currentState = StoryState.crossdresser; break;
+				case "heart": currentState = StoryState.boyloves_something; break;
+				}
 			}
 			i = i + 1;
+		}
+		// we have gone through all the tokens
+		switch(currentState) {
+		case StoryState.crossdresser: _story = "So you made a cross dresser?!?";
 		}
 	}
 
