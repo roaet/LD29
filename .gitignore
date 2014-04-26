@@ -5,7 +5,7 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
-!*.*.meta
+*.meta
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
