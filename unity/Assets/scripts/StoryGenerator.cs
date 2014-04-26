@@ -2,6 +2,10 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+public enum StoryState {
+	start, boy, girl, knife, heart
+}
+
 public class StoryGenerator
 {
 	/*wordList[#].getPOS will return a string of
@@ -21,7 +25,51 @@ public class StoryGenerator
 		madLibStyle = false;
 	}
 
-	public void generate(){
+
+
+	private void generateThroughFSM() {
+		StoryState currentState = StoryState.start; // current state is set to starting because there is no words loaded
+		int i = 0;
+		/*
+		 * 
+		 * ARRAY
+		 * Collection of things of type T
+		 * 
+		 * Array[0][1][...][Count-1]
+		 * 
+		 */
+		while(i < wordList.Count) {
+			Word currentWord = wordList[i];
+			string token = currentWord.word;
+			// state stuff
+
+			if(currentState == StoryState.start) {
+				switch(token) {
+				case "boy": currentState = StoryState.boy; break;
+				case "girl": currentState = StoryState.girl; break;
+				}
+			} else if(currentState == StoryState.boy) {
+
+			}
+			i = i + 1;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private void generate(){
 		if(madLibStyle) {
 
 			extractPOSs ();
@@ -30,6 +78,7 @@ public class StoryGenerator
 			return;
 		}
 		//At this point the story has been made and can be got from anywhere else
+		generateThroughFSM();
 	}
 
 	/*TODO: get the number of each type of 'part of speech' that will be used
