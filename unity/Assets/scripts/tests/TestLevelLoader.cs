@@ -14,6 +14,9 @@ public class TestLevelLoader : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		/*LevelLoader loader = new LevelLoader ("levels.txt", 0);//LOADS LVL 1
+		*/
+
 		int width = 18;
 		int height = 11;
 		tileData = new List<List<GameObject>>();
