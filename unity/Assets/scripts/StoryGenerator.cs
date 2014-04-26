@@ -8,21 +8,27 @@ public class StoryGenerator
 		verb, adjective, person, place, thing
 	wordList[#].getWord will return the actual word in string form
 	*/
-	private string story;
+	private string _story;
 	private List<Word> wordList;
 	public int verbs, adjectives, persons, places, things;
+
+	private bool madLibStyle;
 
 	public StoryGenerator (List<Word> wordList)
 	{
 		this.wordList = wordList;
 		generate ();
+		madLibStyle = false;
 	}
 
 	public void generate(){
-		extractPOSs ();
-		story = pullStoryFromFile ();
-		replaceKeywords ();
+		if(madLibStyle) {
 
+			extractPOSs ();
+			_story = pullStoryFromFile ();
+			replaceKeywords ();
+			return;
+		}
 		//At this point the story has been made and can be got from anywhere else
 	}
 
@@ -32,20 +38,22 @@ public class StoryGenerator
 	public void extractPOSs(){
 	}
 
-	public string pullStoryFromFile(){
-		string story = null;
+	private string pullStoryFromFile(){
+		string _story = "";
 
 		//TODO: pull a story that can be filled with the POSs that we have
 
-		return story;
+		return _story;
 	}
 
 	//TODO: replace the keywords in the story for the ones we have in the list
-	public void replaceKeywords(){
+	private void replaceKeywords(){
 
 	}
-
-	public string getStory(){
-		return story;
+	
+	public string story {
+		get {
+			return _story;
+		}
 	}
 }
