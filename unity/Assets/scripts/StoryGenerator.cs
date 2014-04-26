@@ -32,8 +32,8 @@ public class StoryGenerator
 	public void extractPOSs(){
 	}
 
-	public String pullStoryFromFile(){
-		string story;
+	public string pullStoryFromFile(){
+		string story = null;
 
 		//TODO: pull a story that can be filled with the POSs that we have
 
