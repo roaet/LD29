@@ -3,8 +3,10 @@
 	
 	"levels" : [
 		{
-			"name" : "Level 1 - Craw",
-			"words" : ["Alvin", "great", "Space station", "C'Thulu"],
-			"pos" : ["person", "adj", "place", "thing"]
+			"width" : 4,
+			"height" : 3,
+			"words" : [["Emrakul", "nukes", "fire", "world"]
+					   ["blah", "blah", "blah", "blah"]
+					   ["blah", "blah", "blah", "blah"]]
 		}
 }

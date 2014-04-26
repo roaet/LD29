@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
-public class Word : MonoBehaviour {
+public class Word{
 	private string _word;
-	private string _pos;//part of speech
 	// Use this for initialization
 	void Start () {
 	
@@ -14,15 +14,14 @@ public class Word : MonoBehaviour {
 	
 	}
 
+	public Word(JSONNode wordJSON, int x, int y){
+		_word = wordJSON ["words"][x][y];//prob ["words"][num] for array
+		Debug.Log (_word);
+	}
+
 	public string word {
 		get {
 			return _word;
-		}
-	}
-
-	public string pos{
-		get {
-			return _pos;
 		}
 	}
 }
