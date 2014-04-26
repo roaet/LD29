@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class Word : MonoBehaviour {
-	string word;
-	string pos;//part of speech
+	private string _word;
+	private string _pos;//part of speech
 	// Use this for initialization
 	void Start () {
 	
@@ -14,11 +14,15 @@ public class Word : MonoBehaviour {
 	
 	}
 
-	public string getWord(){
-		return word;
+	public string word {
+		get {
+			return _word;
+		}
 	}
 
-	public string getPOS(){
-		return pos;
+	public string pos{
+		get {
+			return _pos;
+		}
 	}
 }
