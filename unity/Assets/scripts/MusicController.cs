@@ -27,7 +27,7 @@ public class MusicController : MonoBehaviour {
 			musicSource.volume = 0f;
 		} else {
 			_sprite.sprite = noteOn;
-			musicSource.volume = 0.4f;
+			musicSource.volume = 1.0f;
 		}
 	}
 }
