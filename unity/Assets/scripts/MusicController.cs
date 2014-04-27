@@ -8,9 +8,12 @@ public class MusicController : MonoBehaviour {
 
 	public AudioSource musicSource;
 
+
+	private SpriteRenderer _sprite;
+
 	// Use this for initialization
 	void Start () {
-	
+		_sprite = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +22,12 @@ public class MusicController : MonoBehaviour {
 	}
 
 	void OnMouseUp() {
-
+		if(musicSource.volume > 0f) {
+			_sprite.sprite = noteOff;
+			musicSource.volume = 0f;
+		} else {
+			_sprite.sprite = noteOn;
+			musicSource.volume = 0.4f;
+		}
 	}
 }
