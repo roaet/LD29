@@ -284,6 +284,7 @@ GameObject:
   - 4: {fileID: 515737233}
   - 212: {fileID: 515737232}
   - 114: {fileID: 515737234}
+  - 61: {fileID: 515737235}
   m_Layer: 0
   m_Name: notes_on
   m_TagString: Untagged
@@ -339,6 +340,17 @@ MonoBehaviour:
   noteOn: {fileID: 21300000, guid: 2405be6bec8a0eb4bb043d3c105f0f6c, type: 3}
   noteOff: {fileID: 21300000, guid: 02f1759809f0e1e43bdaa3293454416c, type: 3}
   musicSource: {fileID: 1294635029}
+--- !u!61 &515737235
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 515737231}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.33333337, y: 1.33333337}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &566362142
 GameObject:
   m_ObjectHideFlags: 0
