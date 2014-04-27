@@ -20,6 +20,7 @@ public class TestStoryGenerator : MonoBehaviour {
 	float delay = 1f;
 	bool killed = false;
 	private MyFunction f;
+	private AudioSource audio;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,7 @@ public class TestStoryGenerator : MonoBehaviour {
 		storedTiles = new List<Tile> ();
 		upTiles = new List<Tile> ();
 		loader = null;
+		audio = GetComponent<AudioSource>();
 	}
 
 	public void load(){
@@ -70,6 +72,7 @@ public class TestStoryGenerator : MonoBehaviour {
 				upTiles [0].kill ();
 				upTiles.RemoveRange (0, 2);
 				combinedTiles++;
+				audio.Play();
 			} else {
 				upTiles [0].switchBack ();
 				upTiles [1].switchBack ();

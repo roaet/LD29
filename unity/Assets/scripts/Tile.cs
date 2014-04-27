@@ -9,11 +9,13 @@ public class Tile: MonoBehaviour {
 	private Sprite _sprite;
 	private bool isClickable;
 	private bool moved;
+	private AudioSource audio;
 
 	// Use this for initialization
 	void Start () {
 		isClickable = true;
 		moved = false;
+		audio = GetComponent<AudioSource>();
 	}
 
 	public Sprite sprite{
@@ -55,6 +57,9 @@ public class Tile: MonoBehaviour {
 			sr.sprite = _sprite;
 			isClickable = false;
 			TestStoryGenerator.upTiles.Add(this);
+			if(audio) {
+				audio.Play();
+			}
 		}
 	}
 
