@@ -21,15 +21,20 @@ public class TestStoryGenerator : MonoBehaviour {
 	bool killed = false;
 	private MyFunction f;
 	private AudioSource audio;
-
+	//private CreateJSONFile json;
+	private int level;
 	// Use this for initialization
 	void Start () {
 		tilesUpfacing = 0;
 		combinedTiles = 0;
+		level = 0;
 		storedTiles = new List<Tile> ();
 		upTiles = new List<Tile> ();
 		loader = null;
 		audio = GetComponent<AudioSource>();
+
+		/*json = new CreateJSONFile ();
+		Debug.Log (json.randomizeJSON());*/
 	}
 
 	public void load(){
@@ -39,8 +44,11 @@ public class TestStoryGenerator : MonoBehaviour {
 		combinedTiles = 0;
 		storedTiles = new List<Tile> ();
 		upTiles = new List<Tile> ();
-		loader = new LoadWordMap ("levels", 0, tilePrefab, levelCanvas, tileStartPoint,
+		if (level > 19)
+			level = 0;
+		loader = new LoadWordMap ("levels", level++, tilePrefab, levelCanvas, tileStartPoint,
 		                                      sprites);
+		level++;
 	}
 
 	// Update is called once per frame
