@@ -47,7 +47,7 @@ public class Tile: MonoBehaviour {
 	}
 
 	public void move(){
-		transform.position = new Vector3 (-3.719f, 4.180f, 0f);
+		transform.position = new Vector3 (TestStoryGenerator.combinedTiles*1.5f-3.719f, 4.180f, 0f);
 	}
 
 	public void kill(){
