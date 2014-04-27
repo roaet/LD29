@@ -31,7 +31,8 @@ public class Game : MonoBehaviour
 	}
 
 	private string ConvertTileToString(Tile t) {
-		switch(t.name) {
+		Debug.Log ("Converting tile " + t.tileName + "!");
+		switch(t.tileName) {
 		case "tile_boy": return "boy";
 		case "tile_broken": return "brokenheart";
 		case "tile_bulb": return "bulb";
@@ -52,13 +53,18 @@ public class Game : MonoBehaviour
 	}
 	
 	public void AllTilesMatched(List<Tile> s) {
-		currentState = GameState.end;
+		Debug.Log ("Finish callback called!");
+		Debug.Log ("Tile list size: " + s.Count.ToString());
 		List<string> stringies = new List<string>();
 		foreach(Tile t in s) {
 			stringies.Add (ConvertTileToString(t));
 		}
 		completedTiles = s;
 		completedWords = stringies;
+		foreach(string str in stringies) {
+			Debug.Log ("Completed tile " + str);
+		}
+		currentState = GameState.end;
 	}
 
 	private void HideTitle() {
@@ -108,7 +114,7 @@ public class Game : MonoBehaviour
 				HideBanner();
 				break;
 			case GameState.end:
-				StoryGenerator gen = new StoryGenerator(new List<string>());
+				StoryGenerator gen = new StoryGenerator(completedWords);
 				banner.text = gen.story;
 				HideTitle();
 				ShowBanner();
