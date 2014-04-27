@@ -6,7 +6,7 @@ public class CreateJSONFile
 {
 	String[] tiles = {"tile_boy", "tile_broken", "tile_bulb", "tile_cat", "tile_fire", 
 					"tile_girl", "tile_heart", "tile_nuke", "tile_rainbow", "tile_world"};
-	public int numLevels = 20;
+	public int numLevels = 1;
 	public int numPairs = 6;
 	String json;
 
