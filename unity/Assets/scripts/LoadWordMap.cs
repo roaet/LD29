@@ -13,14 +13,15 @@ public class LoadWordMap
 	private List<List<GameObject>> tileData;
 
 	public LoadWordMap(string loadSource, int level, GameObject tilePrefab,
-	                   GameObject levelCanvas, GameObject tileStartPoint, Sprite[] sprites) {
+	                   GameObject levelCanvas, GameObject tileStartPoint, Sprite[] sprites,
+	                   string json) {
 
-		TextAsset json = (TextAsset)Resources.Load (loadSource, typeof(TextAsset));
+		/*TextAsset json = (TextAsset)Resources.Load (loadSource, typeof(TextAsset));
 		if(!json){
 			Debug.LogError("Couldn't find: " + loadSource);
-		}
+		}*/
 		wordList = new List<Word> ();
-		string content = json.text;
+		string content = json/*.text*/;
 		JSONNode levels = JSON.Parse (content);
 		int w = levels ["levels"] [level] ["width"].AsInt;
 		int h = levels ["levels"] [level] ["height"].AsInt;
@@ -31,8 +32,8 @@ public class LoadWordMap
 			}
 		}
 
-		int width = 4;
-		int height = 3;
+		int width = w;
+		int height = h;
 		tileData = new List<List<GameObject>>();
 		for(int y = 0; y < height; y++) {
 			tileData.Add(new List<GameObject>());
