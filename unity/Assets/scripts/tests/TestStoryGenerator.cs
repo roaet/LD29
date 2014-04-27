@@ -10,10 +10,11 @@ public class TestStoryGenerator : MonoBehaviour {
 	public GameObject tileStartPoint;
 	public Sprite[] sprites;
 
-	public int tilesUpfacing = 0;
-	public static List<Tile> upTiles = new List<Tile> ();
-	public static int combinedTiles = 0;
-	public static List<Tile> storedTiles = new List<Tile>();
+	public int tilesUpfacing;
+	public static List<Tile> upTiles;
+	public static int combinedTiles;
+	public static List<Tile> storedTiles;
+	public LoadWordMap loader;
 
 	float nextUsage;
 	float delay = 1f;
@@ -22,18 +23,32 @@ public class TestStoryGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		tilesUpfacing = 0;
+		combinedTiles = 0;
+		storedTiles = new List<Tile> ();
+		upTiles = new List<Tile> ();
+		loader = null;
 	}
 
 	public void load(){
-		LoadWordMap loader = new LoadWordMap ("levels", 0, tilePrefab, levelCanvas, tileStartPoint,
+		Tile.killAll (storedTiles);
+
+		tilesUpfacing = 0;
+		combinedTiles = 0;
+		storedTiles = new List<Tile> ();
+		upTiles = new List<Tile> ();
+		loader = new LoadWordMap ("levels", 0, tilePrefab, levelCanvas, tileStartPoint,
 		                                      sprites);
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyUp(KeyCode.F5))
+		if (Input.GetKeyUp (KeyCode.F5)) {
+			if(loader != null)
+				loader.killTileGameObjects();
+
 			load ();
+		}
 		if(!killed)
 			nextUsage = Time.time + delay;
 		if(upTiles != null)
@@ -42,8 +57,10 @@ public class TestStoryGenerator : MonoBehaviour {
 	}
 
 	public void checkSameTileFaces(){
-		if (!killed)
+		if (!killed) {
 			killed = true;
+			loader.setClickable(false);
+		}
 
 		if (Time.time > nextUsage && killed) {
 			killed = false;
@@ -58,6 +75,8 @@ public class TestStoryGenerator : MonoBehaviour {
 				upTiles [1].switchBack ();
 				upTiles.RemoveRange (0, 2);
 			}
+
+			loader.setClickable(true);
 		}
 
 		if (storedTiles.Count == 6)

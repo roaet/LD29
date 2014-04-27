@@ -11,7 +11,7 @@ public class LoadWordMap
 	// Use this for initialization
 	
 	private List<List<GameObject>> tileData;
-	
+
 	public LoadWordMap(string loadSource, int level, GameObject tilePrefab,
 	                   GameObject levelCanvas, GameObject tileStartPoint, Sprite[] sprites) {
 
@@ -65,6 +65,25 @@ public class LoadWordMap
 				tile.transform.position = pos;
 				tileData[y].Add(tileGameObject);
 			}
+		}
+	}
+
+	public void setClickable(bool b){
+		for (int i = 0; i < tileData.Count; i++){
+			for (int j = 0; j < tileData[i].Count; j++){
+				if(tileData[i][j] != null)
+					tileData[i][j].GetComponent<Tile>().clickable = b;
+			}
+		}
+	}
+
+	public void killTileGameObjects(){
+		for (int i = 0; i < tileData.Count; i++){
+			for (int j = 0; j < tileData[i].Count; j++){
+				if(tileData[i][j] != null)
+					tileData[i][j].GetComponent<Tile>().kill();
+			}
+			tileData[i].Clear();
 		}
 	}
 
