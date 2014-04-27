@@ -224,17 +224,17 @@ MonoBehaviour:
   tilePrefab: {fileID: 100000, guid: a939d726a23e7934d89f96d00b9606ec, type: 2}
   tileStartPoint: {fileID: 1106689876}
   sprites:
-  - {fileID: 21300000, guid: 5f05526920914f541b3ec6e8cc451172, type: 3}
-  - {fileID: 21300000, guid: 06399495739bd1d44b805bade6cf33a5, type: 3}
-  - {fileID: 21300000, guid: 2538a37cf2c46154cab362aab305951c, type: 3}
-  - {fileID: 21300000, guid: 55fb711ba4b0c49488dc3157a50b2e0e, type: 3}
-  - {fileID: 21300000, guid: 5bd0d41b35dde6c4ea2977eae7fcb512, type: 3}
-  - {fileID: 21300000, guid: 82d5af4da83365648adc881ba6ee5644, type: 3}
-  - {fileID: 21300000, guid: 9cbb126ca102d40478ad404dbe79dcb5, type: 3}
-  - {fileID: 21300000, guid: a70cfff739350cd4db762b5cc726fe87, type: 3}
-  - {fileID: 21300000, guid: c1f356f165f40fc4eb34a5e9f592ff61, type: 3}
-  - {fileID: 21300000, guid: c4df500ebafb6334188065625398c726, type: 3}
-  - {fileID: 21300000, guid: dc2bfc62e067ee541afc894adc0a5263, type: 3}
+  - {fileID: 21300000, guid: 308c309d2876e9844b65e6b96d73a556, type: 3}
+  - {fileID: 21300000, guid: 3af324f8d1671ee43ad5c0b5efe32342, type: 3}
+  - {fileID: 21300000, guid: 6219fb57d955ca045a320aab38af8f4b, type: 3}
+  - {fileID: 21300000, guid: 9a2ba6f7e5383c54cbb30f4995f3d50e, type: 3}
+  - {fileID: 21300000, guid: 9c1e6e09785db6b49acf92aa7b8a277b, type: 3}
+  - {fileID: 21300000, guid: b30cb360b1550cb44bff29156fa62d76, type: 3}
+  - {fileID: 21300000, guid: c5d5430270e05fc4591a71719c881299, type: 3}
+  - {fileID: 21300000, guid: c8cbf8d1bb623754b987c3b3676f22f5, type: 3}
+  - {fileID: 21300000, guid: d5b22d754bd67fd46b12d733a98b7948, type: 3}
+  - {fileID: 21300000, guid: eb71f7c9e8a3de34cb78cbb4ca9b1ca2, type: 3}
+  tilesUpfacing: 0
 --- !u!1 &1721494572
 GameObject:
   m_ObjectHideFlags: 0
