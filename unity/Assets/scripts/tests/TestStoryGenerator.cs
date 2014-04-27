@@ -67,12 +67,13 @@ public class TestStoryGenerator : MonoBehaviour {
 		if (Time.time > nextUsage && killed) {
 			killed = false;
 			if (upTiles [0].tileName == upTiles [1].tileName) {
+				
+				if(audio) audio.Play();
 				upTiles [1].move ();
 				storedTiles.Add(upTiles[1]);
 				upTiles [0].kill ();
 				upTiles.RemoveRange (0, 2);
 				combinedTiles++;
-				audio.Play();
 			} else {
 				upTiles [0].switchBack ();
 				upTiles [1].switchBack ();
