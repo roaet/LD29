@@ -5,8 +5,8 @@
 		{
 			"width" : 4,
 			"height" : 3,
-			"words" : [["tile_boy", "tile_broken", "tile_bulb", "tile_cat"]
-					   ["tile_fire", "tile_heart", "tile_cat", "tile_world"]
-					   ["tile_cat", "tile_nuke", "tile_rainbow", "tile_cat"]]
+			"words" : [["tile_boy", "tile_boy", "tile_rainbow", "tile_cat"]
+					   ["tile_fire", "tile_heart", "tile_cat", "tile_fire"]
+					   ["tile_cat", "tile_boy", "tile_rainbow", "tile_heart"]]
 		}
 }
