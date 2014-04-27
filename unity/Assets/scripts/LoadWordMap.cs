@@ -13,7 +13,7 @@ public class LoadWordMap
 	private List<List<GameObject>> tileData;
 	
 	public LoadWordMap(string loadSource, int level, GameObject tilePrefab,
-	                   GameObject levelCanvas, GameObject tileStartPoint) {
+	                   GameObject levelCanvas, GameObject tileStartPoint, Sprite[] sprites) {
 
 		TextAsset json = (TextAsset)Resources.Load (loadSource, typeof(TextAsset));
 		if(!json){
@@ -43,6 +43,16 @@ public class LoadWordMap
 				GameObject tileGameObject = CreateTile(tilePrefab, levelCanvas, tileStartPoint);
 				Tile tile = tileGameObject.GetComponent<Tile>();
 				tile.tileName = wordList[height*x + y].word;
+
+				SpriteRenderer sr = tileGameObject.GetComponent<SpriteRenderer> ();
+
+				for(int i = 0; i < sprites.Length; i++){
+					Sprite temp = sprites[i];
+
+					if(temp.name == tile.tileName)
+						tile.sprite = temp;
+				}
+
 				Vector3 pos = tileStartPoint.transform.position;
 				BoxCollider2D box = tilePrefab.GetComponent<BoxCollider2D>();
 				pos.x += x * box.size.x * 2f;
@@ -62,6 +72,7 @@ public class LoadWordMap
 	                              GameObject tileStartPoint) {
 		GameObject tile = GameObject.Instantiate(tilePrefab) as GameObject;
 		tile.transform.parent = levelCanvas.transform;
+
 		return tile;
 	}
 }
