@@ -1,60 +1,63 @@
-/*
- {
-	"levelCount": 1,
-	
-	"levels" : [
-		{
-			"width" : 4,
-			"height" : 3,
-			"words" : [["tile_boy", "tile_boy", "tile_rainbow", "tile_cat"]
-					   ["tile_fire", "tile_heart", "tile_cat", "tile_fire"]
-					   ["tile_cat", "tile_boy", "tile_rainbow", "tile_heart"]]
-		}
-} 
-*/
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class CreateJSONFile
 {
-	String[] tiles = {"boy", "broken", "bulb", "cat", "fire", 
-					  "girl", "heart", "nuke", "rainbow", "world"};
-	public int numLevels = 100;
+	String[] tiles = {"tile_boy", "tile_broken", "tile_bulb", "tile_cat", "tile_fire", 
+					"tile_girl", "tile_heart", "tile_nuke", "tile_rainbow", "tile_world"};
+	public int numLevels = 20;
 	public int numPairs = 6;
 	String json;
 
 	public CreateJSONFile ()
 	{
-		json = "{ \"levelCount\": " + numLevels + ", \'levels\" : [";
+		json = "{ \"levelCount\": " + numLevels + ", \"levels\" : [";
 	}
-
-	public void randomizeJSON(){
-		Random r = new Random ();
-		List<string> singularSet = new List<string> ();
+	private Random r = new Random();
+	public String randomizeJSON(){
+		List<string> singularSet;
 
 		for (int i = 0; i < numLevels; i++) {
+			singularSet = new List<string> ();
 			for(int j = 0; j < numPairs; j++){
-				singularSet[j] = tiles[r.Next(0,10)];
-				singularSet[j + numPairs] = tiles[r.Next(0,10)];
+				string temp = tiles[r.Next(0, 10)];
+				singularSet.Add(temp);
+				singularSet.Add(temp);
 			}
 
 			shuffle(singularSet);
 			addLevelToJSON(singularSet);
 		}
+		json += " }";
+
+		return json;
 	}
 
 	public void addLevelToJSON(List<string> list){
-		json += "{\"width\" : 4, \"height\" : 3, \"words\" : [[\"";
+		json += "{\"width\" : 4, \"height\" : 3, \"words\" : [";
+
+		for (int i = 0; i < 3; i++){
+			json += "[";
+
+			for (int j = 0; j < 4; j++){
+				if(j != 3)
+					json += "\"" + list[i*4+j] + "\", ";
+				else
+					json += "\"" + list[i*4+j] + "\"";
+			}
+			json += "]";
+		}
+		json += "] }";
 	}
 
 	public void shuffle(List<string> list){
-		Random rng = new Random ();
 		int n = list.Count;
 
 		while (n > 1) {
 			n--;
-			int k = rng.Next (n + 1);
+			int k = r.Next (n+1);
+
 			string value = list[k];
 			list[k] = list[n];
 			list[n] = value;
