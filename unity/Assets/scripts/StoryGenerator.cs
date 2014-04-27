@@ -12,8 +12,8 @@ using System.Collections.Generic;
 * g = rainbowdash
 * h = fire
 * i = lightbulb
-* j = world,
-*							
+* j = world
+
 * ----------------
 * */
 public enum StoryState
@@ -74,6 +74,7 @@ mreow,
 biggles,
 comfort/*done*/,
 rainbow/*done*/,
+rainbowdash/*done*/,
 rainbowblush/*done*/,
 rainbowpower/*done*/,
 rainbowpowertwo/*done*/,
@@ -84,13 +85,23 @@ rainbowsavethree/*done*/,
 rainbowsavior,
 rainbowhoney/*done*/,
 rainbowdashpilgrimforce,
+megabadascott,
+videogameviolence,
 rainbowdashofthejungle,
+janesurvival,
+primitive,
 rainbowcat/*done*/,
 rainbowcomfort,
 doublerainbow/*done*/,
 brony,
 fire,
 bulb,
+sheldoncooper,
+amyfowler,
+greaterlight,
+spock
+
+
 }
 
 public class StoryGenerator
@@ -139,7 +150,7 @@ private void generateThroughFSM ()
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
 					case "fire":
-						currentState = StoryState.fire; break;
+						currentState = StoryState.romance; break;
 					case "bulb":
 						currentState = StoryState.bulb; break;
 						
@@ -162,6 +173,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.boyhappy; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
+					case "bulb":
+						currentState = StoryState.bulb; break;
 				}
 			} else if (currentState == StoryState.boys) {
 				switch (token) {
@@ -179,6 +192,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.boysheal; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
+					case "bulb":
+						currentState = StoryState.bulb; break;
 				}
 			} else if (currentState == StoryState.girl) {
 				switch (token) {
@@ -198,6 +213,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.girlhappy; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
+					case "bulb":
+						currentState = StoryState.bulb; break;
 				}
 			} else if (currentState == StoryState.girls) {
 				switch (token) {
@@ -215,6 +232,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.girlsheal; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
+					case "bulb":
+						currentState = StoryState.bulb; break;
 				}
 			} else if (currentState == StoryState.boyloves) {
 				switch (token) {
@@ -504,6 +523,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.meow; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
+					case "fire":
+						currentState = StoryState.romance; break;
 				}
 			} else if (currentState == StoryState.romance) {
 				switch (token) {
@@ -575,11 +596,19 @@ private void generateThroughFSM ()
 				switch (token) {
 					case "rainbow":
 						currentState = StoryState.rainbowdashpilgrimforce; break;
+					case "fire":
+						currentState = StoryState.megabadascott; break;
+					case "bulb":
+						currentState = StoryState.videogameviolence; break;
 				}
 			} else if (currentState == StoryState.jane) {
 				switch (token) {
 					case "rainbow":
 						currentState = StoryState.rainbowdashofthejungle; break;
+					case "fire":
+						currentState = StoryState.janesurvival; break;
+					case "bulb":
+						currentState = StoryState.primitive; break;
 				}
 			} else if (currentState == StoryState.friends) {
 				switch (token) {
@@ -589,6 +618,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.panic; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
+					case "fire":
+						currentState = StoryState.passion; break;
 				}
 			} else if (currentState == StoryState.passion) {
 				switch (token) {
@@ -605,6 +636,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.meow; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
+					case "fire":
+						currentState = StoryState.world; break;
 				}
 			} else if (currentState == StoryState.emo) {
 				switch (token) {
@@ -712,6 +745,23 @@ private void generateThroughFSM ()
 						currentState = StoryState.rainbowcat; break;
 					case "nuke":
 						currentState = StoryState.rainbowsavetwo; break;
+					case "fire":
+						currentState = StoryState.rainbowblush; break;
+					case "bulb":
+						currentState = StoryState.rainbowdash; break;
+				}
+			} else if (currentState == StoryState.rainbowdash) {
+				switch (token) {
+					case "boy":
+						currentState = StoryState.rainbowboy; break;
+					case "girl":
+						currentState = StoryState.rainbowgirl; break;
+					case "fire":
+						currentState = StoryState.rainbowcomfort; break;
+					case "heart":
+						currentState = StoryState.rainbowwarrior; break;
+					case "cat":
+						currentState = StoryState.rainbowcat; break;
 				}
 			} else if (currentState == StoryState.rainbowboy) {
 				switch (token) {
@@ -778,11 +828,64 @@ private void generateThroughFSM ()
 				}
 			} else if (currentState == StoryState.fire) {
 				switch (token) {
-				
+					case "boy":
+						currentState = StoryState.boyloves; break;
+					case "girl":
+						currentState = StoryState.girlloves; break;
+					case "rainbow":
+						currentState = StoryState.rainbowblush; break;
+					case "cat":
+						currentState = StoryState.mreow; break;
 				}
 			} else if (currentState == StoryState.bulb) {
 				switch (token) {
-				
+					case "fire":
+						currentState = StoryState.greaterlight; break;
+					case "boy":
+						currentState = StoryState.boyloves; break;
+					case "girl":
+						currentState = StoryState.girlloves; break;
+					case "world":
+						currentState = StoryState.life; break;
+					case "nuke":
+						currentState = StoryState.panic; break;
+				}
+			} else if (currentState == StoryState.greaterlight) {
+				switch (token) {
+					case "boy":
+						currentState = StoryState.sheldoncooper; break;
+					case "girl":
+						currentState = StoryState.amyfowler; break;
+					case "world":
+						currentState = StoryState.life; break;
+					case "nuke":
+						currentState = StoryState.annihilation; break;
+				}
+			} else if (currentState == StoryState.sheldoncooper) {
+				switch (token) {
+					case "rainbow":
+						currentState = StoryState.spock; break;
+					case "nuke":
+						currentState = StoryState.panic; break;
+					case "world":
+						currentState = StoryState.emo; break;
+					case "girl":
+						currentState = StoryState.boyshate; break;
+					case "cat":
+						currentState = StoryState.boyhappy; break;
+				}
+			} else if (currentState == StoryState.amyfowler) {
+				switch (token) {
+					case "rainbow":
+						currentState = StoryState.girlbully; break;
+					case "world":
+						currentState = StoryState.emo; break;
+					case "boy":
+						currentState = StoryState.baddate; break;
+					case "cat":
+						currentState = StoryState.girlevil; break;
+					case "fire":
+						currentState = StoryState.girlhappy; break;
 				}
 			}
 			i = i + 1;
@@ -792,10 +895,141 @@ private void generateThroughFSM ()
 		// we have gone through all the tokens
 		switch (currentState) {
 		case StoryState.boy:
-				_story = "Delicious, mouthwatering, meaty sausages, comes browned or white here at the sausage festival!"; break;
-				default:
-				_story = "BUZZ"; break;
+			_story = "Delicious, mouthwatering, meaty sausages, comes browned or white here at the sausage festival!"; break;
+		case StoryState.boyhappy:
+			_story = "stuff01"; break;
+		case StoryState.boysenv:
+			_story = "stuff02"; break;
+		case StoryState.boysbreak:
+			_story = "stuff03"; break;
+		case StoryState.boysheal:
+			_story = "stuff04"; break;
+		case StoryState.boyanger:
+			_story = "stuffo5"; break;
+		case StoryState.boybully:
+			_story = "stuff06"; break;
+		case StoryState.boydestruction:
+			_story = "stuff07"; break;
+		case StoryState.boyevil:
+			_story = "stuffo8"; break;
+		case StoryState.rainbowboy:
+			_story = "stuff09"; break;
+		case StoryState.girl:
+			_story = "stuff10"; break;
+		case StoryState.girlhappy:
+			_story = "stuff11"; break;
+		case StoryState.girlsenv:
+			_story = "stuff12"; break;
+		case StoryState.girlsbreak:
+			_story = "stuff13"; break;
+		case StoryState.girlsheal:
+			_story = "stuff14"; break;
+		case StoryState.girlanger:
+			_story = "stuff15"; break;
+		case StoryState.girlbully:
+			_story = "stuff16"; break;
+		case StoryState.girldestruction:
+			_story = "stuff17"; break;
+		case StoryState.girlevil:
+			_story = "stuff18"; break;
+		case StoryState.rainbowgirl:
+			_story = "stuff19"; break;
+		case StoryState.romance:
+			_story = "stuff20"; break;
+		case StoryState.baddate:
+			_story = "stuff21"; break;
+		case StoryState.honey:
+			_story = "stuff22"; break;
+		case StoryState.scottpilgrim:
+			_story = "stuff23"; break;
+		case StoryState.jane:
+			_story = "stuff24"; break;
+		case StoryState.passion:
+			_story = "stuff25"; break;
+		case StoryState.life:
+			_story = "stuff26"; break;
+		case StoryState.emo:
+			_story = "stuff27"; break;
+		case StoryState.bromance:
+			_story = "stuff28"; break;
+		case StoryState.bffs:
+			_story = "stuff29"; break;
+		case StoryState.nuke:
+			_story = "stuff30"; break;
+		case StoryState.panic:
+			_story = "stuff31"; break;
+		case StoryState.annihilation:
+			_story = "stuff32"; break;
+		case StoryState.unfortunate:
+			_story = "stuff33"; break;
+		case StoryState.cat:
+			_story = "stuff34"; break;
+		case StoryState.meow:
+			_story = "stuff35"; break;
+		case StoryState.mreow:
+			_story = "stuff36"; break;
+		case StoryState.biggles:
+			_story = "stuff37"; break;
+		case StoryState.comfort:
+			_story = "stuff38"; break;
+		case StoryState.rainbow:
+			_story = "stuff39"; break;
+		case StoryState.rainbowdash:
+			_story = "stuff40"; break;
+		case StoryState.rainbowblush:
+			_story = "stuff41"; break;
+		case StoryState.rainbowpower:
+			_story = "stuff42"; break;
+		case StoryState.rainbowpowertwo:
+			_story = "stuff43"; break;
+		case StoryState.rainbowwarrior:
+			_story = "stuff44"; break;
+		case StoryState.rainbowsaveone:
+			_story = "stuff45"; break;
+		case StoryState.rainbowsavetwo:
+			_story = "stuff46"; break;
+		case StoryState.rainbowsavethree:
+			_story = "stuff47"; break;
+		case StoryState.rainbowsavior:
+			_story = "stuff48"; break;
+		case StoryState.rainbowhoney:
+			_story = "stuff49"; break;
+		case StoryState.rainbowdashpilgrimforce:
+			_story = "stuff50"; break;
+		case StoryState.megabadascott:
+			_story = "stuff51"; break;
+		case StoryState.videogameviolence:
+			_story = "stuff52"; break;
+		case StoryState.rainbowdashofthejungle:
+			_story = "stuff53"; break;
+		case StoryState.janesurvival:
+			_story = "stuff54"; break;
+		case StoryState.primitive:
+			_story = "stuff55"; break;
+		case StoryState.rainbowcat:
+			_story = "stuff56"; break;
+		case StoryState.rainbowcomfort:
+			_story = "stuff57"; break;
+		case StoryState.doublerainbow:
+			_story = "stuff58"; break;
+		case StoryState.brony:
+			_story = "stuff59"; break;
+		case StoryState.fire:
+			_story = "stuff60"; break;
+		case StoryState.bulb:
+			_story = "stuff61"; break;
+		case StoryState.sheldoncooper:
+			_story = "stuff62"; break;
+		case StoryState.amyfowler:
+			_story = "stuff63"; break;
+		case StoryState.greaterlight:
+			_story = "stuff64"; break;
+		case StoryState.spock:
+			_story = "stuff65"; break;
+			default:
+			_story = "Thanks for playing, but the fate of our world\n is in another set of cards!"; break;
 		}
+		
 	}
 
 
