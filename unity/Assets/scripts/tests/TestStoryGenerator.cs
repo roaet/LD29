@@ -15,17 +15,25 @@ public class TestStoryGenerator : MonoBehaviour {
 	public static int combinedTiles = 0;
 	public static List<Tile> storedTiles = new List<Tile>();
 
+	float nextUsage;
+	float delay = 1f;
+	bool killed = false;
+	private MyFunction f;
+
 	// Use this for initialization
 	void Start () {
+
+	}
+
+	public void load(){
 		LoadWordMap loader = new LoadWordMap ("levels", 0, tilePrefab, levelCanvas, tileStartPoint,
 		                                      sprites);
 	}
 
-	float nextUsage;
-	float delay = 1f;
-	bool killed = false;
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKeyUp(KeyCode.F5))
+			load ();
 		if(!killed)
 			nextUsage = Time.time + delay;
 		if(upTiles != null)
@@ -55,8 +63,6 @@ public class TestStoryGenerator : MonoBehaviour {
 		if (storedTiles.Count == 6)
 			f (storedTiles);
 	}
-
-	private MyFunction f;
 
 	public MyFunction finishCallback{
 		set{
