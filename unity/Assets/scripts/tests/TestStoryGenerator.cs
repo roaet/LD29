@@ -32,6 +32,8 @@ public class TestStoryGenerator : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKeyUp(KeyCode.F5))
+			load ();
 		if(!killed)
 			nextUsage = Time.time + delay;
 		if(upTiles != null)
