@@ -108,7 +108,7 @@ public class Game : MonoBehaviour
 				HideBanner();
 				break;
 			case GameState.end:
-				StoryGenerator gen = new StoryGenerator(new List<Word>());
+				StoryGenerator gen = new StoryGenerator(new List<string>());
 				banner.text = gen.story;
 				HideTitle();
 				ShowBanner();
