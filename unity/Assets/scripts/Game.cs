@@ -27,7 +27,6 @@ public class Game : MonoBehaviour
 	
 	public void TitleContinueClicked() {
 		currentState = GameState.playing;
-		matchingGame.load();
 		Debug.Log ("Switching to playing");
 	}
 
