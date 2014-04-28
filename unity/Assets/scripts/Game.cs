@@ -129,28 +129,12 @@ public class Game : MonoBehaviour
 	{
 		switch(currentState) {
 		case GameState.splash:
-			if(Input.GetKeyUp(KeyCode.Space)) {
-				currentState = GameState.menu;
-				Debug.Log ("Switching to menu");
-			}
 			break;
 		case GameState.menu:
-			if(Input.GetKeyUp(KeyCode.Space)) {
-				currentState = GameState.playing;
-				Debug.Log ("Switching to playing");
-			}
 			break;
 		case GameState.playing:
-			if(Input.GetKeyUp(KeyCode.Space)) {
-				currentState = GameState.end;
-				Debug.Log ("Switching to end");
-			}
 			break;
 		case GameState.end:
-			if(Input.GetKeyUp(KeyCode.Space)) {
-				currentState = GameState.playing;
-				Debug.Log ("Switching to playing");
-			}
 			break;
 		}
 	}
