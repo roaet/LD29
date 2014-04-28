@@ -24,6 +24,7 @@ boys/*done*/,
 boyloves/*done*/,
 boyslove/*done*/,
 boyhappy/*done*/,
+boyexcited,
 boyhates/*done*/,
 boyshate/*done*/,
 boysenv/*done*/,
@@ -40,6 +41,7 @@ girlloves/*done*/,
 girlhates/*done*/,
 girlslove/*done*/,
 girlhappy/*done*/,
+girlexcited,
 girlshate/*done*/,
 girlsenv/*done*/,
 girlsbreak/*done*/,
@@ -69,6 +71,9 @@ panic/*done*/,
 annihilation/*done*/,
 unfortunate,
 cat/*done*/,
+litcat,
+catwarm,
+catscratch,
 meow,
 mreow,
 biggles,
@@ -83,6 +88,7 @@ rainbowsaveone/*done*/,
 rainbowsavetwo/*done*/,
 rainbowsavethree/*done*/,
 rainbowsavior,
+rainbowsad,
 rainbowhoney/*done*/,
 rainbowdashpilgrimforce,
 megabadascott,
@@ -170,7 +176,7 @@ private void generateThroughFSM ()
 					case "nuke":
 						currentState = StoryState.nuke; break;
 					case "cat":
-						currentState = StoryState.boyhappy; break;
+						currentState = StoryState.boyexcited; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
 					case "bulb":
@@ -210,7 +216,7 @@ private void generateThroughFSM ()
 					case "nuke":
 						currentState = StoryState.nuke; break;
 					case "cat":
-						currentState = StoryState.girlhappy; break;
+						currentState = StoryState.girlexcited; break;
 					case "rainbow":
 						currentState = StoryState.rainbow; break;
 					case "bulb":
@@ -249,6 +255,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.boyevil; break;
 					case "rainbow":
 						currentState = StoryState.rainbowblush; break;
+					case "cat":
+						currentState = StoryState.boyhappy; break;
 				}
 			} else if (currentState == StoryState.boyhappy) {
 				switch (token) {
@@ -260,6 +268,13 @@ private void generateThroughFSM ()
 						currentState = StoryState.panic; break;
 					case "rainbow":
 						currentState = StoryState.rainbowblush; break;
+				}
+			} else if (currentState == StoryState.boyexcited) {
+				switch (token) {
+					case "girl":
+						currentState = StoryState.romance; break;
+					case "rainbow":
+						currentState = StoryState.rainbowboy; break;
 				}
 			} else if (currentState == StoryState.boyhates) {
 				switch (token) {
@@ -299,6 +314,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.boysbreak; break;
 					case "heart":
 						currentState = StoryState.boysheal; break;
+					case "boy":
+						currentState = StoryState.boybully; break;
 					case "girl":
 						currentState = StoryState.boybully; break;
 					case "nuke":
@@ -384,7 +401,7 @@ private void generateThroughFSM ()
 					case "nuke":
 						currentState = StoryState.girlevil; break;
 					case "cat":
-						currentState = StoryState.meow; break;
+						currentState = StoryState.girlhappy; break;
 					case "rainbow":
 						currentState = StoryState.rainbowblush; break;
 				}
@@ -398,6 +415,13 @@ private void generateThroughFSM ()
 						currentState = StoryState.panic; break;
 					case "rainbow":
 						currentState = StoryState.rainbowblush; break;
+				}
+			} else if (currentState == StoryState.girlexcited) {
+				switch (token) {
+					case "boy":
+						currentState = StoryState.romance; break;
+					case "rainbow":
+						currentState = StoryState.rainbowgirl; break;
 				}
 			} else if (currentState == StoryState.girlhates) {
 				switch (token) {
@@ -430,6 +454,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.meow; break;
 					case "rainbow":
 						currentState = StoryState.rainbowblush; break;
+					case "fire":
+						currentState = StoryState.girlslove; break;
 				}
 			} else if (currentState == StoryState.girlshate) {
 				switch (token) {
@@ -578,6 +604,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.nuke; break;
 					case "rainbow":
 						currentState = StoryState.rainbowblush; break;
+					case "cat":
+						currentState = StoryState.meow; break;
 				}
 			} else if (currentState == StoryState.hate) {
 				switch (token) {
@@ -629,6 +657,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.unfortunate; break;
 					case "rainbow":
 						currentState = StoryState.rainbowhoney; break;
+					case "brokenheart":
+						currentState = StoryState.hate; break;
 				}
 			} else if (currentState == StoryState.life) {
 				switch (token) {
@@ -712,6 +742,46 @@ private void generateThroughFSM ()
 						currentState = StoryState.world; break;
 					case "rainbow":
 						currentState = StoryState.rainbowcat; break;
+					case "bulb":
+						currentState = StoryState.litcat; break;
+				}
+			} else if (currentState == StoryState.meow) {
+				switch (token) {
+					case "boy":
+						currentState = StoryState.love; break;
+					case "girl":
+						currentState = StoryState.love; break;
+					case "rainbow":
+						currentState = StoryState.rainbowcat; break;
+				}
+			} else if (currentState == StoryState.mreow) {
+				switch (token) {
+					case "boy":
+						currentState = StoryState.catscratch; break;
+					case "girl":
+						currentState = StoryState.catscratch; break;
+					case "rainbow":
+						currentState = StoryState.rainbowcat; break;
+				}
+			} else if (currentState == StoryState.catscratch) {
+				switch (token) {
+					case "rainbow":
+						currentState = StoryState.rainbow; break;
+				}
+			} else if (currentState == StoryState.litcat) {
+				switch (token) {
+					case "boy":
+						currentState = StoryState.boyexcited; break;
+					case "girl":
+						currentState = StoryState.girlexcited; break;
+					case "rainbow":
+						currentState = StoryState.rainbowcat; break;
+					case "fire":
+						currentState = StoryState.catwarm; break;
+					case "nuke":
+						currentState = StoryState.mreow; break;
+					case "brokenheart":
+						currentState = StoryState.mreow; break;
 				}
 			} else if (currentState == StoryState.comfort) {
 				switch (token) {
@@ -728,6 +798,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.rainbowboy; break;
 					case "girl":
 						currentState = StoryState.rainbowgirl; break;
+					case "rainbow":
+						currentState = StoryState.doublerainbow; break;
 				}
 			} else if (currentState == StoryState.rainbow) {
 				switch (token) {
@@ -738,7 +810,7 @@ private void generateThroughFSM ()
 					case "world":
 						currentState = StoryState.rainbowwarrior; break;
 					case "brokenheart":
-						currentState = StoryState.annihilation; break;
+						currentState = StoryState.rainbowsad; break;
 					case "heart":
 						currentState = StoryState.rainbowblush; break;
 					case "cat":
@@ -762,6 +834,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.rainbowwarrior; break;
 					case "cat":
 						currentState = StoryState.rainbowcat; break;
+					case "rainbow":
+						currentState = StoryState.doublerainbow; break;
 				}
 			} else if (currentState == StoryState.rainbowboy) {
 				switch (token) {
@@ -825,6 +899,19 @@ private void generateThroughFSM ()
 				switch (token) {
 					case "nukes":
 						currentState = StoryState.rainbowsavior; break;
+					case "rainbow":
+						currentState = StoryState.doublerainbow; break;
+				}
+			} else if (currentState == StoryState.rainbowsad) {
+				switch (token) {
+					case "heart":
+						currentState = StoryState.rainbow; break;
+					case "nuke":
+						currentState = StoryState.rainbowpower; break;
+					case "fire":
+						currentState = StoryState.rainbowpower; break;
+					case "brokenheart":
+						currentState = StoryState.rainbowpower; break;
 				}
 			} else if (currentState == StoryState.fire) {
 				switch (token) {
@@ -849,6 +936,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.life; break;
 					case "nuke":
 						currentState = StoryState.panic; break;
+					case "cat":
+						currentState = StoryState.litcat; break;
 				}
 			} else if (currentState == StoryState.greaterlight) {
 				switch (token) {
@@ -860,6 +949,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.life; break;
 					case "nuke":
 						currentState = StoryState.annihilation; break;
+					case "cat":
+						currentState = StoryState.litcat; break;
 				}
 			} else if (currentState == StoryState.sheldoncooper) {
 				switch (token) {
@@ -895,103 +986,111 @@ private void generateThroughFSM ()
 		// we have gone through all the tokens
 		switch (currentState) {
 		case StoryState.boy:
-			_story = "Delicious, mouthwatering, meaty sausages, comes browned or white here at the sausage festival!"; break;
+			_story = "Boys, they're so ignorant, self-absorbed, careless...\n destructive...  violent....\n and there are so many of them!"; break;
 		case StoryState.boyhappy:
-			_story = "stuff01"; break;
+			_story = "There is a boy who always appears to be happy,\n for he has a big heart. As a result,\n he gets picked on in school. :("; break;
 		case StoryState.boysenv:
-			_story = "stuff02"; break;
+			_story = "There is a boy who expresses love for the planet.\n He embraces his nickname as the 'tree-hugger'"; break;
+		case StoryState.boyexcited:
+			_story = "There is a very enthusiastic boy, overwhelmed\n by all that is cute and cuddly in life,\n such as cats."; break;
 		case StoryState.boysbreak:
-			_story = "stuff03"; break;
+			_story = "There is a boy with a broken spirit, who cries\n all the time to make people sympathize for him."; break;
 		case StoryState.boysheal:
-			_story = "stuff04"; break;
+			_story = "There is a boy who overcame the odds of a bad\n situation, and turned his life around."; break;
 		case StoryState.boyanger:
-			_story = "stuffo5"; break;
+			_story = "There is a boy, a very heartless, angry boy who\n hates the other kids around him, and spends\n each Sunday asleep in anger management class."; break;
 		case StoryState.boybully:
-			_story = "stuff06"; break;
+			_story = "There is a rude boy who has never felt love,\n except the love of making his fellow\n peers miserable."; break;
 		case StoryState.boydestruction:
-			_story = "stuff07"; break;
+			_story = "There is a boy suffering the consequences\n of his actions. He beat up his peers, set fire to\n a cat, or did something along those lines."; break;
 		case StoryState.boyevil:
-			_story = "stuffo8"; break;
+			_story = "There is a cruel boy who will grow up to\n rule or destroy the world, whichever he decides."; break;
 		case StoryState.rainbowboy:
-			_story = "stuff09"; break;
+			_story = "There is a boy who could never feel any happier,\n for Rainbow Dash has come to play with him\n and make his dreams come true. <3"; break;
 		case StoryState.girl:
-			_story = "stuff10"; break;
+			_story = "Feminism, dear god what has this world come to... Miley Cirus"; break;
 		case StoryState.girlhappy:
-			_story = "stuff11"; break;
+			_story = "There is a girl, and it was assumed\n that she was really happy"; break;
 		case StoryState.girlsenv:
-			_story = "stuff12"; break;
+			_story = "There is a girl who adored the natural world,\n especially animals. So she went on to join P.E.T.A."; break;
+		case StoryState.girlexcited:
+			_story = "There is a joyful girl that is overwhelmed\n by the good things in life like cats"; break;
 		case StoryState.girlsbreak:
-			_story = "stuff13"; break;
+			_story = "There is a girl who will sob about her tragic\n experiences in life. May she find a sympathizer."; break;
 		case StoryState.girlsheal:
-			_story = "stuff14"; break;
+			_story = "There is a girl recovering from a tragic\n episode of her life. Probably a break-up\n or something first-world related."; break;
 		case StoryState.girlanger:
-			_story = "stuff15"; break;
+			_story = "There is a dangerous thing known as an angry girl\n that the wise would take caution of."; break;
 		case StoryState.girlbully:
-			_story = "stuff16"; break;
+			_story = "There is a girl who loves to hit people because\n of some emotional problems with fitting in,\n also because she can get away with it."; break;
 		case StoryState.girldestruction:
-			_story = "stuff17"; break;
+			_story = "There is a girl who destroyed her reputation by\n seriously injuring another peer.\n Punishment: grounded."; break;
 		case StoryState.girlevil:
-			_story = "stuff18"; break;
+			_story = "There is an evil girl who is destined to\n destroy the world, or just cause havoc, though\n the former sounds more awesome."; break;
 		case StoryState.rainbowgirl:
-			_story = "stuff19"; break;
+			_story = "There is a girl who could never again feel as excited\n as right now, as Rainbow Dash has come to make\n her dreams come true. <3"; break;
 		case StoryState.romance:
-			_story = "stuff20"; break;
+			_story = "One day, a boy and a girl will come together\n and share this scientifically unanswered theory\n called 'love'."; break;
 		case StoryState.baddate:
-			_story = "stuff21"; break;
+			_story = "A tragic event will occur while a couple is on a date. The cause: nuclear war, or an ambush of cute cats?"; break;
 		case StoryState.honey:
-			_story = "stuff22"; break;
+			_story = "A boy and girl form a relationship that in\n today's society probably will die within ten years.\n :("; break;
 		case StoryState.scottpilgrim:
-			_story = "stuff23"; break;
+			_story = "The powers of the earth and music will\n coalesce around one boy to construct\n Scott Pilgrim!"; break;
 		case StoryState.jane:
-			_story = "stuff24"; break;
+			_story = "A woman will wonder into the jungle\n and behold the presence of Tarzan."; break;
 		case StoryState.passion:
-			_story = "stuff25"; break;
+			_story = "A boy and a girl fall in deep love,\n gross... they're kissing."; break;
 		case StoryState.life:
-			_story = "stuff26"; break;
+			_story = "Life is full of pleasant wonders and mysteries."; break;
 		case StoryState.emo:
-			_story = "stuff27"; break;
+			_story = "There is a kid who has a broken heart,\n wears black, and hates life, who also can dance well to\n Thriller by Michael Jackson"; break;
 		case StoryState.bromance:
-			_story = "stuff28"; break;
+			_story = "Bromance: the next best thing to actual love."; break;
 		case StoryState.bffs:
-			_story = "stuff29"; break;
+			_story = "Two girls will become bffs hang out, take selfies, sleep over, and whatever else two bffs like doing."; break;
 		case StoryState.nuke:
-			_story = "stuff30"; break;
+			_story = "This world shall get nuked someday,\n will you be ready for that day?"; break;
 		case StoryState.panic:
-			_story = "stuff31"; break;
+			_story = "When danger arises, will you still joke about it?"; break;
 		case StoryState.annihilation:
-			_story = "stuff32"; break;
+			_story = "One day, somebody nuked somebody else,\n where is the world now?"; break;
 		case StoryState.unfortunate:
-			_story = "stuff33"; break;
+			_story = "While on a date, a couple will\n unfortunately call it short when a nuke goes off...\n or when the cat needs attention."; break;
 		case StoryState.cat:
-			_story = "stuff34"; break;
+			_story = "Nyan Nyan Nyan Nyan Nyan Nyan Nyan Nyan"; break;
+		case StoryState.litcat:
+			_story = "Someone will play with a cat and somehow\n light this cat on fire (or plug its tail into\n an outlet), and the result will look amazing."; break;
 		case StoryState.meow:
-			_story = "stuff35"; break;
+			_story = "A few kids are playing with their cats,\n one begins to sing, and the others follow:\n 'Soft kitty, warm kitty, little ball of fur.'"; break;
 		case StoryState.mreow:
-			_story = "stuff36"; break;
+			_story = "A few kids fool around with their cats,\n when the cat gets angry, they start to sing:\n 'Angry kitty, meany kitty, grr grr grr'"; break;
 		case StoryState.biggles:
-			_story = "stuff37"; break;
+			_story = "There once was an evil person who owned\n a cat, a big and evil cat. It was named...\n Mr. Bigglesworth."; break;
 		case StoryState.comfort:
-			_story = "stuff38"; break;
+			_story = "There are many bad things happening in\n the world, but no matter what, a cat can\n comfort just about anyone."; break;
 		case StoryState.rainbow:
-			_story = "stuff39"; break;
+			_story = "Amongst our world a loyal, polychromatic pegasus\n will come to spread joy and cheer to the dinizens of earth"; break;
 		case StoryState.rainbowdash:
-			_story = "stuff40"; break;
+			_story = "There will come a time, when Rainbow Dash will\n become reality, whether through science\n or pure belief in her."; break;
 		case StoryState.rainbowblush:
-			_story = "stuff41"; break;
+			_story = "Rainbow Dash feels the love from her many\n admirers and blushes at the attention."; break;
 		case StoryState.rainbowpower:
-			_story = "stuff42"; break;
+			_story = "Rainbow Dash feels the need to punish\n those who disrespect her or try to break her\n self-confidence. "; break;
 		case StoryState.rainbowpowertwo:
-			_story = "stuff43"; break;
+			_story = "Rainbow Dash, feeling highly riduculed,\n will pummel you for trying to break her heart."; break;
 		case StoryState.rainbowwarrior:
-			_story = "stuff44"; break;
+			_story = "In addition to all her other characteristics,\n Rainbow Dash is a huge environmentalist who\n cares a lot about the world we live in."; break;
 		case StoryState.rainbowsaveone:
-			_story = "stuff45"; break;
+			_story = "An evil person will attempts to raise havoc\n only to be stopped by Rainbow Dash who brings\n the evildoer to justice."; break;
 		case StoryState.rainbowsavetwo:
-			_story = "stuff46"; break;
+			_story = "A nuke is designated to blow up and kill\n many people, but Rainbow Dash arrives to redirect\n the nuke and save the day."; break;
 		case StoryState.rainbowsavethree:
-			_story = "stuff47"; break;
+			_story = "A nuke is designated to blow up and kill\n many people, but Rainbow Dash arrives to redirect\n the nuke and save the day."; break;
 		case StoryState.rainbowsavior:
 			_story = "stuff48"; break;
+		case StoryState.rainbowsad:
+			_story = "Rainbow Dash feels sad that you don't like him,\n and flies away with sparkling tears gliding down\n her face."; break;
 		case StoryState.rainbowhoney:
 			_story = "stuff49"; break;
 		case StoryState.rainbowdashpilgrimforce:
@@ -1011,25 +1110,27 @@ private void generateThroughFSM ()
 		case StoryState.rainbowcomfort:
 			_story = "stuff57"; break;
 		case StoryState.doublerainbow:
-			_story = "stuff58"; break;
+			_story = "A double rainbow is a phenomenon of optics that displays a\n spectrum of light due to the sun shining on droplets of\n moisture in the atmosphere. Does that explain it? "; break;
 		case StoryState.brony:
-			_story = "stuff59"; break;
+			_story = "There is a boy who loves watching My Little Pony\n As he got older, people refered to him as\n a brony."; break;
 		case StoryState.fire:
-			_story = "stuff60"; break;
+			_story = "...but then everything changed\n when the fire nation attacked!"; break;
 		case StoryState.bulb:
-			_story = "stuff61"; break;
+			_story = "Let there be light!"; break;
 		case StoryState.sheldoncooper:
-			_story = "stuff62"; break;
+			_story = "There is a strange boy who grew up to be\n a genius. Though as intelligent as he was, he was socially\n awkward... poor Sheldon."; break;
 		case StoryState.amyfowler:
-			_story = "stuff63"; break;
+			_story = "There is a strange girl who grew up to be\n somewhat of a genius, but she was unable to socialize properly.\n Poor Amy Fowler."; break;
 		case StoryState.greaterlight:
 			_story = "stuff64"; break;
 		case StoryState.spock:
-			_story = "stuff65"; break;
+			_story = "There is an intelligent boy who grew up\n to be a theoretical physicist and worship the\n god amongst nerds: Spock."; break;
 			default:
 			_story = "Thanks for playing, but the fate of our world\n is in another set of cards!"; break;
 		}
-		
+		if 	(_story.Substring(0,5)=="stuff") {
+			_story = "Thanks for playing, but the fate of our world\n is in another set of cards!";
+		}
 	}
 
 
