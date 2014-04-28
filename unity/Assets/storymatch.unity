@@ -339,7 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteOn: {fileID: 21300000, guid: 2405be6bec8a0eb4bb043d3c105f0f6c, type: 3}
   noteOff: {fileID: 21300000, guid: 02f1759809f0e1e43bdaa3293454416c, type: 3}
-  musicSource: {fileID: 1294635029}
+  soundsAndMusic: []
 --- !u!61 &515737235
 BoxCollider2D:
   m_ObjectHideFlags: 0

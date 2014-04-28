@@ -11,15 +11,12 @@ public class LoadWordMap
 	// Use this for initialization
 	
 	private List<List<GameObject>> tileData;
+	private MusicController audioController;
 
 	public LoadWordMap(string loadSource, int level, GameObject tilePrefab,
 	                   GameObject levelCanvas, GameObject tileStartPoint, Sprite[] sprites,
-	                   string json) {
-
-		/*TextAsset json = (TextAsset)Resources.Load (loadSource, typeof(TextAsset));
-		if(!json){
-			Debug.LogError("Couldn't find: " + loadSource);
-		}*/
+	                   string json, MusicController _audio) {
+		audioController = _audio;
 		wordList = new List<Word> ();
 		string content = json/*.text*/;
 		JSONNode levels = JSON.Parse (content);
@@ -43,6 +40,7 @@ public class LoadWordMap
 			for(int y = 0; y < height; y++) {
 				GameObject tileGameObject = CreateTile(tilePrefab, levelCanvas, tileStartPoint);
 				Tile tile = tileGameObject.GetComponent<Tile>();
+				tile.audioController = audioController;
 				tile.tileName = wordList[height*x + y].word;
 
 				for(int i = 0; i < sprites.Length; i++){

@@ -15,6 +15,7 @@ public class TestStoryGenerator : MonoBehaviour {
 	public static int combinedTiles;
 	public static List<Tile> storedTiles;
 	public LoadWordMap loader;
+	public MusicController audioController;
 
 	float nextUsage;
 	float delay = 1f;
@@ -41,7 +42,7 @@ public class TestStoryGenerator : MonoBehaviour {
 		upTiles = new List<Tile> ();
 
 		loader = new LoadWordMap ("levels", 0, tilePrefab, levelCanvas, tileStartPoint,
-		                                      sprites, json);
+		                          sprites, json, audioController);
 	}
 
 	// Update is called once per frame

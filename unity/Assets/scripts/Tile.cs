@@ -10,6 +10,7 @@ public class Tile: MonoBehaviour {
 	private bool isClickable;
 	private bool moved;
 	private AudioSource _audio;
+	private MusicController _audioController;
 
 	// Use this for initialization
 	void Start () {
@@ -45,6 +46,12 @@ public class Tile: MonoBehaviour {
 		}
 	}
 
+	public MusicController audioController {
+		set {
+			_audioController = value;
+		}
+	}
+
 	public void switchBack(){
 		SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
 		sr.sprite = back;
@@ -57,7 +64,7 @@ public class Tile: MonoBehaviour {
 			sr.sprite = _sprite;
 			isClickable = false;
 			TestStoryGenerator.upTiles.Add(this);
-			if(_audio) {
+			if(_audio && _audioController.soundOn) {
 				_audio.Play();
 			}
 		}

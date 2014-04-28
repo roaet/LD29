@@ -24,11 +24,9 @@ public class Game : MonoBehaviour
 	
 	public void TitleContinueClicked() {
 		currentState = GameState.playing;
-		Debug.Log ("Switching to playing");
 	}
 
 	private string ConvertTileToString(Tile t) {
-		Debug.Log ("Converting tile " + t.tileName + "!");
 		switch(t.tileName) {
 		case "tile_boy": return "boy";
 		case "tile_broken": return "brokenheart";
@@ -46,20 +44,14 @@ public class Game : MonoBehaviour
 	
 	public void EndContinueClicked() {
 		currentState = GameState.playing;
-		Debug.Log ("Switching to playing");
 	}
 	
 	public void AllTilesMatched(List<Tile> s) {
-		Debug.Log ("Finish callback called!");
-		Debug.Log ("Tile list size: " + s.Count.ToString());
 		List<string> stringies = new List<string>();
 		foreach(Tile t in s) {
 			stringies.Add (ConvertTileToString(t));
 		}
 		completedWords = stringies;
-		foreach(string str in stringies) {
-			Debug.Log ("Completed tile " + str);
-		}
 		currentState = GameState.end;
 	}
 
