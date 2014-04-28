@@ -20,18 +20,16 @@ public class TestStoryGenerator : MonoBehaviour {
 	float delay = 1f;
 	bool killed = false;
 	private MyFunction f;
-	private AudioSource audio;
+	private AudioSource _audio;
 	private string json;
-	private int level;
 	// Use this for initialization
 	void Start () {
 		tilesUpfacing = 0;
 		combinedTiles = 0;
-		level = 0;
 		storedTiles = new List<Tile> ();
 		upTiles = new List<Tile> ();
 		loader = null;
-		audio = GetComponent<AudioSource>();
+		_audio = GetComponent<AudioSource>();
 	}
 
 	public void load(){
@@ -73,7 +71,7 @@ public class TestStoryGenerator : MonoBehaviour {
 			killed = false;
 			if (upTiles [0].tileName == upTiles [1].tileName) {
 				
-				if(audio) audio.Play();
+				if(_audio) _audio.Play();
 				upTiles [1].move ();
 				storedTiles.Add(upTiles[1]);
 				upTiles [0].kill ();

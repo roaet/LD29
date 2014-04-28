@@ -6,14 +6,11 @@ public enum GameState { splash, menu, options, loading, playing, end };
 
 public class Game : MonoBehaviour
 {
-	public Level levelLoader;
-	public Level currentLevel;
 	public TextBanner banner;
 	public Title title;
 	public TestStoryGenerator matchingGame;
 
 	private GameState _currentState;
-	private List<Tile> completedTiles;
 	private List<string> completedWords;
 
 	// Use this for initialization
@@ -59,7 +56,6 @@ public class Game : MonoBehaviour
 		foreach(Tile t in s) {
 			stringies.Add (ConvertTileToString(t));
 		}
-		completedTiles = s;
 		completedWords = stringies;
 		foreach(string str in stringies) {
 			Debug.Log ("Completed tile " + str);

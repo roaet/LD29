@@ -45,8 +45,6 @@ public class LoadWordMap
 				Tile tile = tileGameObject.GetComponent<Tile>();
 				tile.tileName = wordList[height*x + y].word;
 
-				SpriteRenderer sr = tileGameObject.GetComponent<SpriteRenderer> ();
-
 				for(int i = 0; i < sprites.Length; i++){
 					Sprite temp = sprites[i];
 

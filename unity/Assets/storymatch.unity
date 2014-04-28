@@ -177,7 +177,7 @@ GUIText:
   m_Text: Lorem Ipsum dolor sit amet.
   m_Anchor: 1
   m_Alignment: 1
-  m_PixelOffset: {x: 0, y: 40}
+  m_PixelOffset: {x: 0, y: 48.3199997}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: 83ea8e78324682d46a3a3cfe50474a7b, type: 3}
