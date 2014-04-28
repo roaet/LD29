@@ -600,6 +600,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.boyloves; break;
 					case "girl":
 						currentState = StoryState.girlloves; break;
+					case "brokenheart":
+						currentState = StoryState.hate; break;
 					case "nuke":
 						currentState = StoryState.nuke; break;
 					case "rainbow":
@@ -613,6 +615,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.boyhates; break;
 					case "girl":
 						currentState = StoryState.girlhates; break;
+					case "heart":
+						currentState = StoryState.love; break;
 					case "nuke":
 						currentState = StoryState.life; break;
 					case "cat":
@@ -627,6 +631,8 @@ private void generateThroughFSM ()
 					case "fire":
 						currentState = StoryState.megabadascott; break;
 					case "bulb":
+						currentState = StoryState.videogameviolence; break;
+					case "nuke":
 						currentState = StoryState.videogameviolence; break;
 				}
 			} else if (currentState == StoryState.jane) {
@@ -697,7 +703,7 @@ private void generateThroughFSM ()
 					case "nuke":
 						currentState = StoryState.panic; break;
 					case "rainbow":
-						currentState = StoryState.rainbow; break;
+						currentState = StoryState.rainbowgirl; break;
 				}			
 			} else if (currentState == StoryState.nuke) {
 				switch (token) {
@@ -705,6 +711,8 @@ private void generateThroughFSM ()
 						currentState = StoryState.boyevil; break;
 					case "girl":
 						currentState = StoryState.girlevil; break;
+					case "heart":
+						currentState = StoryState.hate; break;
 					case "world":
 						currentState = StoryState.panic; break;
 					case "cat":
@@ -849,6 +857,8 @@ private void generateThroughFSM ()
 				}
 			} else if (currentState == StoryState.rainbowcat) {
 				switch (token) {
+					case "nuke":
+						currentState = StoryState.rainbowsavetwo; break;
 					case "rainbow":
 						currentState = StoryState.doublerainbow; break;
 				}
@@ -985,7 +995,7 @@ private void generateThroughFSM ()
 
 		// we have gone through all the tokens
 		switch (currentState) {
-		case StoryState.boy:
+		case StoryState.boys:
 			_story = "Boys, they're so ignorant, self-absorbed, careless...\n destructive...  violent....\n and there are so many of them!"; break;
 		case StoryState.boyhappy:
 			_story = "There is a boy who always appears to be happy,\n for he has a big heart. As a result,\n he gets picked on in school. :("; break;
@@ -1007,7 +1017,7 @@ private void generateThroughFSM ()
 			_story = "There is a cruel boy who will grow up to\n rule or destroy the world, whichever he decides."; break;
 		case StoryState.rainbowboy:
 			_story = "There is a boy who could never feel any happier,\n for Rainbow Dash has come to play with him\n and make his dreams come true. <3"; break;
-		case StoryState.girl:
+		case StoryState.girls:
 			_story = "Feminism, dear god what has this world come to... Miley Cirus"; break;
 		case StoryState.girlhappy:
 			_story = "There is a girl, and it was assumed\n that she was really happy"; break;
@@ -1050,7 +1060,7 @@ private void generateThroughFSM ()
 		case StoryState.bffs:
 			_story = "Two girls will become bffs hang out, take selfies, sleep over, and whatever else two bffs like doing."; break;
 		case StoryState.nuke:
-			_story = "This world shall get nuked someday,\n will you be ready for that day?"; break;
+			_story = "One day this world shall get nuked,\n will you be ready when that day comes?"; break;
 		case StoryState.panic:
 			_story = "When danger arises, will you still joke about it?"; break;
 		case StoryState.annihilation:
@@ -1064,13 +1074,13 @@ private void generateThroughFSM ()
 		case StoryState.meow:
 			_story = "A few kids are playing with their cats,\n one begins to sing, and the others follow:\n 'Soft kitty, warm kitty, little ball of fur.'"; break;
 		case StoryState.mreow:
-			_story = "A few kids fool around with their cats,\n when the cat gets angry, they start to sing:\n 'Angry kitty, meany kitty, grr grr grr'"; break;
+			_story = "A few kids fool around with their cats,\n when the cats get angry, they start to sing:\n 'Angry kitty, meany kitty, grr grr grr'"; break;
 		case StoryState.biggles:
 			_story = "There once was an evil person who owned\n a cat, a big and evil cat. It was named...\n Mr. Bigglesworth."; break;
 		case StoryState.comfort:
 			_story = "There are many bad things happening in\n the world, but no matter what, a cat can\n comfort just about anyone."; break;
 		case StoryState.rainbow:
-			_story = "Amongst our world a loyal, polychromatic pegasus\n will come to spread joy and cheer to the dinizens of earth"; break;
+			_story = "Amongst our world, there is a loyal, polychromatic pegasus\n who will come to spread joy and cheer\n to the denizens of earth"; break;
 		case StoryState.rainbowdash:
 			_story = "There will come a time, when Rainbow Dash will\n become reality, whether through science\n or pure belief in her."; break;
 		case StoryState.rainbowblush:
@@ -1084,35 +1094,35 @@ private void generateThroughFSM ()
 		case StoryState.rainbowsaveone:
 			_story = "An evil person will attempts to raise havoc\n only to be stopped by Rainbow Dash who brings\n the evildoer to justice."; break;
 		case StoryState.rainbowsavetwo:
-			_story = "A nuke is designated to blow up and kill\n many people, but Rainbow Dash arrives to redirect\n the nuke and save the day."; break;
+			_story = "A nuke is designated to blow up and kill many\n people and cats, but Rainbow Dash arrives to redirect the\n nuke and save the day."; break;
 		case StoryState.rainbowsavethree:
-			_story = "A nuke is designated to blow up and kill\n many people, but Rainbow Dash arrives to redirect\n the nuke and save the day."; break;
+			_story = "A nuke is designated to blow up and kill many\n people and cats, but Rainbow Dash arrives to redirect the\n nuke and save the day."; break;
 		case StoryState.rainbowsavior:
-			_story = "stuff48"; break;
+			_story = "Total annihilation will face the world one day,\n only to be stopped when comfronted by Rainbow Dash!"; break;
 		case StoryState.rainbowsad:
-			_story = "Rainbow Dash feels sad that you don't like him,\n and flies away with sparkling tears gliding down\n her face."; break;
+			_story = "Rainbow Dash feels sad that you don't like her,\n and flies away with sparkling tears gliding down\n her face."; break;
 		case StoryState.rainbowhoney:
-			_story = "stuff49"; break;
+			_story = "A boy and a girl fell will fall in love\n and ride through the sky on the back of the\n majestic Rainbow Dash."; break;
 		case StoryState.rainbowdashpilgrimforce:
-			_story = "stuff50"; break;
+			_story = "The powers of the Earth and music combined\n to create Scott Pilgrim, together with Rainbow Dash\n they are the awesome RainbowPilgrimForce!"; break;
 		case StoryState.megabadascott:
-			_story = "stuff51"; break;
+			_story = "One day Scott Pilgrim, combined from the powers of the Earth\n and music, will master the magic of fire! And then\n probably cook himself lunch with it."; break;
 		case StoryState.videogameviolence:
-			_story = "stuff52"; break;
+			_story = "Legend tells that Scott Pilgrim, combined from\n the powers of the Earth and music, will defeat his foes using 8-bit videogame fighting skills."; break;
 		case StoryState.rainbowdashofthejungle:
-			_story = "stuff53"; break;
+			_story = "A girl has lost herself in the jungle only to be found\n by a multi-colored pony with wings. The pony inspects\n her and says, 'Me Rainbow Dash, you Jane.'"; break;
 		case StoryState.janesurvival:
-			_story = "stuff54"; break;
+			_story = "A girl named Jane will lose herself in a creepy jungle, so\n she'll start a fire and burn it down... Only you can\n prevent forest fires, don't get lost in the jungle."; break;
 		case StoryState.primitive:
-			_story = "stuff55"; break;
+			_story = "A girl named Jane will get lost in the jungle,\n meet a primitive man and fall in love with him.\n Their gorilla children will be gorgeous."; break;
 		case StoryState.rainbowcat:
-			_story = "stuff56"; break;
+			_story = "Rainbow Dash and a cat will befriend each other\n and play amongst the clouds."; break;
 		case StoryState.rainbowcomfort:
-			_story = "stuff57"; break;
+			_story = "When times are extremely tough for people, Rainbow Dash\n will be there to comfort them through break-ups\n to possible nuclear wars."; break;
 		case StoryState.doublerainbow:
-			_story = "A double rainbow is a phenomenon of optics that displays a\n spectrum of light due to the sun shining on droplets of\n moisture in the atmosphere. Does that explain it? "; break;
+			_story = "A double Rainbow Dash is a phenomenon of magic that displays\n a spectrum of love due to the sun shining on Rainbow\n Dash's cutie mark. Does that explain it?"; break;
 		case StoryState.brony:
-			_story = "There is a boy who loves watching My Little Pony\n As he got older, people refered to him as\n a brony."; break;
+			_story = "There is a boy who loves watching My Little Pony.\n As he got older, people refered to him as\n a brony, but he didn't care much."; break;
 		case StoryState.fire:
 			_story = "...but then everything changed\n when the fire nation attacked!"; break;
 		case StoryState.bulb:
@@ -1122,7 +1132,7 @@ private void generateThroughFSM ()
 		case StoryState.amyfowler:
 			_story = "There is a strange girl who grew up to be\n somewhat of a genius, but she was unable to socialize properly.\n Poor Amy Fowler."; break;
 		case StoryState.greaterlight:
-			_story = "stuff64"; break;
+			_story = "And then Edison said, 'let there be ultraviolet light'!"; break;
 		case StoryState.spock:
 			_story = "There is an intelligent boy who grew up\n to be a theoretical physicist and worship the\n god amongst nerds: Spock."; break;
 			default:
