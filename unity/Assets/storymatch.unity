@@ -339,7 +339,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteOn: {fileID: 21300000, guid: 2405be6bec8a0eb4bb043d3c105f0f6c, type: 3}
   noteOff: {fileID: 21300000, guid: 02f1759809f0e1e43bdaa3293454416c, type: 3}
-  soundsAndMusic: []
+  soundsAndMusic:
+  - {fileID: 1560093903}
+  - {fileID: 1294635029}
 --- !u!61 &515737235
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -845,6 +847,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d5b22d754bd67fd46b12d733a98b7948, type: 3}
   - {fileID: 21300000, guid: eb71f7c9e8a3de34cb78cbb4ca9b1ca2, type: 3}
   tilesUpfacing: 0
+  audioController: {fileID: 515737234}
 --- !u!82 &1560093903
 AudioSource:
   m_ObjectHideFlags: 0
